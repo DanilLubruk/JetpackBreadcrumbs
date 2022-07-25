@@ -1,16 +1,10 @@
 package lubruk.jetpackbreadcrumbs
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import androidx.activity.compose.setContent
-import lubruk.jetpackbreadcrumbs.databinding.ActivityMainBinding
+import lubruk.jetpackbreadcrumbs.views.BreadcrumbsController.Companion.rememberBreadcrumbsState
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            val breadcrumbsController = rememberBreadcrumbsState<String>(
+                initialItems = ArrayList(
+                    listOf(
+                        "Item1",
+                        "Item2",
+                        "Item3",
+                    )
+                )
 
+
+            )
         }
     }
 }
